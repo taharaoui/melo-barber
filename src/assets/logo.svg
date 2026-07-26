@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320" height="120" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titleDesc">
+  <title id="titleDesc">Melobarber logo</title>
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#A56E43" />
+      <stop offset="1" stop-color="#B97D4A" />
+    </linearGradient>
+  </defs>
+  <!-- background removed to keep SVG transparent -->
+  <g transform="translate(20,10)">
+    <circle cx="60" cy="50" r="44" fill="none" stroke="url(#g1)" stroke-width="3" />
+    <circle cx="60" cy="50" r="36" fill="none" stroke="#A56E43" stroke-width="1.5" />
+
+    <!-- scissors icon -->
+    <g transform="translate(36,26)" fill="none" stroke="#A56E43" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="8" cy="6" r="5" />
+      <circle cx="8" cy="30" r="5" />
+      <path d="M12 10 L56 34" />
+      <path d="M12 26 L56 6" />
+    </g>
+
+    <!-- MELO text -->
+    <text x="120" y="48" font-family="Fraunces, serif, Georgia, serif" font-size="36" font-weight="700" fill="#A56E43">MELO</text>
+    <text x="148" y="78" font-family="Oswald, sans-serif" font-size="12" letter-spacing="2" fill="#A56E43">BARBER</text>
+  </g>
+</svg>
