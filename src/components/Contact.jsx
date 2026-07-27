@@ -7,7 +7,7 @@ export default function Contact() {
       <div className="wrap contact-grid">
         <div>
           <SectionHeading
-            eyebrow="Contact"
+            eyebrow="Trouvez-nous"
             title="Un salon à votre écoute"
             description="Nous vous répondons rapidement pour réserver, répondre à vos questions ou vous orienter vers le meilleur service."
           />
@@ -19,21 +19,15 @@ export default function Contact() {
           </ul>
         </div>
 
-        <form className="contact-form">
-          <label>
-            Nom
-            <input type="text" name="name" placeholder="Votre nom" />
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" placeholder="Votre email" />
-          </label>
-          <label>
-            Message
-            <textarea name="message" rows="4" placeholder="Comment pouvons-nous vous aider ?" />
-          </label>
-          <button type="submit" className="btn-primary">Envoyer</button>
-        </form>
+        <div className="contact-map-card">
+          <iframe
+            title="Localisation Melobarber"
+            src="https://www.google.com/maps?q=3054%20Chem.%20d'Oka%20Sainte-Marthe-sur-le-Lac&z=14&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <a href="https://maps.google.com/?q=3054%20Chem.%20d'Oka%20Sainte-Marthe-sur-le-Lac" target="_blank" rel="noreferrer" className="btn-primary">Ouvrir dans Google Maps</a>
+        </div>
       </div>
     </section>
   );

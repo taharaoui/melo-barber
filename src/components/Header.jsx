@@ -1,4 +1,6 @@
 import React from "react";
+import NavLinkItem from "./ui/NavLinkItem.jsx";
+import NavActionButton from "./ui/NavActionButton.jsx";
 
 export default function Header({ logoSrc, navLinks, menuOpen, setMenuOpen }) {
   return (
@@ -15,27 +17,19 @@ export default function Header({ logoSrc, navLinks, menuOpen, setMenuOpen }) {
         >
           <ul>
             {navLinks.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} onClick={() => setMenuOpen(false)}>
-                  {l.label}
-                </a>
-              </li>
+              <NavLinkItem key={l.href} href={l.href} label={l.label} onClick={() => setMenuOpen(false)} />
             ))}
             <li>
-              <a
-                href="#booking"
-                className="nav-cta nav-cta-mobile"
-                onClick={() => setMenuOpen(false)}
-              >
+              <NavActionButton href="#booking" className="nav-cta-mobile" onClick={() => setMenuOpen(false)}>
                 Réserver
-              </a>
+              </NavActionButton>
             </li>
           </ul>
         </nav>
 
-        <a href="#booking" className="nav-cta nav-cta-desktop">
+        <NavActionButton href="#booking" className="nav-cta-desktop">
           Réserver
-        </a>
+        </NavActionButton>
 
         <button
           className="nav-toggle"

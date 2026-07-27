@@ -62,6 +62,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
+          <span className="footer-listen">Un salon à votre écoute</span>
           <span>© 2026 Melobarber. Tous droits réservés.</span>
           <span>Fait avec des mains sûres à Saint-Eustache, QC</span>
         </div>

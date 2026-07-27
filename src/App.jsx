@@ -8,6 +8,7 @@ import FAQ from "./components/FAQ.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import BackToTop from "./components/ui/BackToTop.jsx";
+import SectionDivider from "./components/ui/SectionDivider.jsx";
 
 import { services } from "./data/services.js";
 import { gallery } from "./data/gallery.js";
@@ -15,7 +16,6 @@ import { team as teamData } from "./data/team.js";
 import { faq } from "./data/faq.js";
 
 import logo from "./assets/logo.svg";
-import heroPhoto from "./assets/hero-barber.jpg";
 
 const SETMORE_URL = "https://harry3cvf.setmore.com/";
 
@@ -23,7 +23,7 @@ const NAV_LINKS = [
   { href: "#accueil", label: "Accueil" },
   { href: "#services", label: "Services" },
   { href: "#galerie", label: "Galerie" },
-  { href: "#a-propos", label: "À propos" },
+  { href: "#team", label: "Équipe" },
   { href: "#booking", label: "Horaires" },
   { href: "#contact", label: "Contact" },
 ];
@@ -116,7 +116,7 @@ export default function App() {
         className="hero component-dark"
         id="accueil"
         style={{
-          backgroundImage: `linear-gradient(100deg, rgba(10, 8, 6, 0.95) 0%, rgba(10, 8, 6, 0.78) 40%, rgba(10, 8, 6, 0.36) 100%), url(${heroPhoto})`,
+          backgroundImage: `linear-gradient(100deg, rgba(10, 8, 6, 0.95) 0%, rgba(10, 8, 6, 0.78) 40%, rgba(10, 8, 6, 0.36) 100%), url(https://i.postimg.cc/c0xbKv75/photo-1705976062088-5433328c2dcd.avif)`,
         }}
       >
         <div className="groove-bg" />
@@ -132,7 +132,7 @@ export default function App() {
               Melobarber, c'est la coupe précise dans un fauteuil détendu. Bonne musique, serviettes chaudes et des barbiers qui prennent leur temps — parce qu'un contour propre, ça ne se bâcle pas.
             </p>
             <div className="hero-actions">
-              <a href="#horaires" className="btn-primary" aria-label="Réserver votre fauteuil chez Melobarber">
+              <a href="#booking" className="btn-primary" aria-label="Réserver votre fauteuil chez Melobarber">
                 Réserver votre fauteuil
               </a>
               <a href="#services" className="btn-ghost">Voir le menu →</a>
@@ -184,7 +184,6 @@ export default function App() {
       </section>
       <div className="stripe-rule" />
       <FAQ faq={faq} />
-
       <Contact />
       <Footer />
       <BackToTop />
