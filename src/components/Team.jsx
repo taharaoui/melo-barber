@@ -29,7 +29,7 @@ export default function Team({ team }) {
                 <p className="team-handle">{member.instagram}</p>
 
                 <div className="team-actions">
-                  <a className="team-action" href={`#booking`} aria-label={`Réserver avec ${member.name}`}>
+                  <a className="team-action" href={`#booking-embed`} aria-label={`Réserver avec ${member.name}`}>
                     Réserver
                   </a>
                   <a className="team-action icon-action" href={`tel:${member.phone.replace(/[^0-9+]/g, "")}`} aria-label={`Appeler ${member.name}`}>

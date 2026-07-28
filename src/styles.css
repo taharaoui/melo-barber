@@ -28,6 +28,7 @@
   overflow-x: hidden;
 }
 .melo-root *{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
 .melo-root h1,.melo-root h2,.melo-root h3{
   font-family:'Fraunces', serif;
   font-weight:600;
@@ -239,6 +240,7 @@
 /* SECTION HEADS */
 .melo-root .section-head{ max-width:620px; margin-bottom:56px; }
 .melo-root .section-head .eyebrow{ margin-bottom:14px; display:block; }
+.melo-root .eyebrow-white{ color:var(--cream); }
 .melo-root .section-head h2{ font-size:clamp(2rem, 4vw, 2.8rem); }
 .melo-root .section-head p{ margin-top:14px; color:var(--text-muted); max-width:520px; }
 .melo-root .component-dark{ background:#0e0e0e; color:#f9f1e7; }
@@ -348,6 +350,36 @@
 .melo-root .team-action.icon-action svg{ width:20px; height:20px; object-fit:contain; }
 @media (max-width: 860px){ .melo-root .team-grid{ grid-template-columns:1fr; } }
 
+/* LOYALTY / MELO REWARDS */
+.melo-root .loyalty-section{ position:relative; padding:28px 0 40px; }
+.melo-root .loyalty-section::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background: linear-gradient(180deg, rgba(14,14,14,0.04) 0%, rgba(10,10,10,0.02) 60%);
+}
+.melo-root .loyalty-card{ position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center; padding:28px; border-radius:16px; backdrop-filter:blur(8px); background:linear-gradient(180deg, rgba(249,241,231,0.98), rgba(249,241,231,0.96)); box-shadow:0 24px 60px rgba(11,10,10,0.28); border:1px solid rgba(165,110,60,0.12); }
+.melo-root .loyalty-media{ padding:6px 12px; }
+.melo-root .loyalty-badge{ display:inline-block; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:0.14em; font-size:0.68rem; color:var(--rust); background:rgba(165,110,60,0.06); border-radius:999px; padding:8px 12px; border:1px solid rgba(165,110,60,0.08); }
+.melo-root .loyalty-media h3{ margin:12px 0 8px; font-size:1.28rem; color:var(--ink); }
+.melo-root .loyalty-desc{ color:rgba(47,42,36,0.72); margin-bottom:16px; max-width:520px; }
+.melo-root .loyalty-cta-row{ display:flex; gap:12px; align-items:center; }
+.melo-root .loyalty-cta{ display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:999px; background:var(--rust); color:var(--cream); text-transform:uppercase; font-family:'Oswald',sans-serif; letter-spacing:0.08em; font-weight:700; box-shadow:0 10px 30px rgba(165,110,60,0.14); border:1px solid rgba(165,110,60,0.18); }
+.melo-root .loyalty-cta:hover{ background:var(--brass); color:var(--ink); transform:translateY(-2px); }
+.melo-root .loyalty-more{ color:var(--ink); opacity:0.7; font-size:0.95rem; }
+.melo-root .loyalty-benefits{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.melo-root .benefit-card{ display:flex; gap:14px; align-items:flex-start; padding:14px; border-radius:12px; background:linear-gradient(180deg, rgba(14,14,14,0.02), rgba(14,14,14,0.01)); border:1px solid rgba(23,19,18,0.04); box-shadow:0 8px 20px rgba(11,10,10,0.06); }
+.melo-root .benefit-icon{ width:46px; height:46px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(180deg, rgba(165,110,60,0.06), rgba(165,110,60,0.02)); color:var(--rust); border:1px solid rgba(165,110,60,0.12); }
+.melo-root .benefit-card h4{ margin:0; font-size:0.95rem; color:var(--ink); font-weight:600; }
+.melo-root .benefit-card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(11,10,10,0.08); }
+
+@media (max-width: 980px){
+  .melo-root .loyalty-card{ grid-template-columns:1fr; }
+  .melo-root .loyalty-benefits{ grid-template-columns:repeat(2, 1fr); }
+}
+
+@media (max-width: 520px){
+  .melo-root .loyalty-benefits{ grid-template-columns:1fr; }
+}
+
 /* FAQ */
 .melo-root section.faq{ position:relative; background:#0e0e0e; padding:120px 0; }
 .melo-root section.faq .section-head h2,
@@ -361,8 +393,8 @@
 
 /* CONTACT */
 .melo-root section.contact{ position:relative; background:#0e0e0e; padding:120px 0; }
-.melo-root section.contact .section-head h2,
-.melo-root section.contact .section-head p,
+.melo-root section.contact .section-head h2 ,
+.melo-root section.contact .section-head p ,
 .melo-root section.contact .section-head .eyebrow{ color:#f9f1e7; }
 .melo-root .contact-grid{ display:grid; grid-template-columns:0.95fr 1.05fr; gap:32px; align-items:start; }
 .melo-root .contact-list{ display:flex; flex-direction:column; gap:16px; margin-top:24px; color:rgba(249,241,231,0.82); }
@@ -383,7 +415,7 @@
 .melo-root .about-portrait span{ font-family:'Oswald', sans-serif; color:var(--cream); font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.85; }
 .melo-root .about-copy h2,
 .melo-root .about-copy p,
-.melo-root .about-copy .eyebrow{ color:#f9f1e7; }
+.melo-root .about-copy .eyebrow{ color:var(--rust); }
 .melo-root .about-copy p{ color:rgba(249,241,231,0.82); margin-bottom:18px; max-width:520px; }
 .melo-root .about-stats{ display:flex; gap:40px; margin-top:30px; border-top:1px solid rgba(249,241,231,0.16); padding-top:26px; }
 .melo-root .stat b{ font-family:'Fraunces', serif; font-size:1.9rem; display:block; color:var(--rust); }
@@ -392,13 +424,13 @@
 
 /* HORAIRES / RESERVATION */
 .melo-root section.booking{ position:relative; background:var(--ink); padding:120px 0; }
-.melo-root .booking-grid{ display:grid; grid-template-columns:0.75fr 1.25fr; gap:60px; }
+.melo-root .booking-grid{ display:grid; grid-template-columns:1fr; gap:28px; }
 .melo-root .hours-table{ width:100%; border-collapse:collapse; margin-top:10px; }
 .melo-root .hours-table tr{ border-bottom:1px solid rgba(250,248,244,0.12); }
 .melo-root .hours-table td{ padding:14px 0; font-family:'Oswald', sans-serif; font-size:1rem; letter-spacing:0.04em; color:var(--cream); }
 .melo-root .hours-table td:last-child{ text-align:right; color:var(--brass-light); }
 .melo-root .booking-note{ margin-bottom:20px; color:var(--text-soft); max-width:540px; font-size:0.97rem; }
-.melo-root .booking-embed{ background:var(--ink-soft); border:1px solid var(--line); border-radius:14px; padding:36px; box-shadow:0 40px 90px rgba(0,0,0,0.18); }
+.melo-root .booking-embed{ background:var(--ink-soft); border:1px solid var(--line); border-radius:14px; padding:24px; box-shadow:0 40px 90px rgba(0,0,0,0.18); width:100%; }
 .melo-root .setmore-frame{ width:100%; border-radius:16px; overflow:hidden; background:var(--cream); }
 .melo-root .setmore-frame iframe{ width:100%; height:650px; border:0; display:block; }
 @media (max-width: 860px){

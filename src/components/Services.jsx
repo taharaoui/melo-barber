@@ -12,7 +12,7 @@ export default function Services({ services, icons }) {
         />
 
         <div className="service-promo reveal" role="note">
-          <strong>Promotion exclusive :</strong> coupe gratuite le jour de ta fête avec réservation sur place ou en ligne.
+          <strong>Coupe offerte :</strong> Recevez une coupe gratuite le jour de votre anniversaire.
         </div>
 
         <div className="services-grid reveal">
@@ -34,10 +34,9 @@ export default function Services({ services, icons }) {
                 ))}
               </ul>
               <a
-                href={service.link}
+                href="#booking-embed"
                 className="service-book-link"
-                target="_blank"
-                rel="noopener noreferrer"
+                aria-label={`Réserver ${service.name}`}
               >
                 Réserver
               </a>

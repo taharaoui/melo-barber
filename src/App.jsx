@@ -171,7 +171,7 @@ export default function App() {
               Choisissez votre créneau et confirmez en quelques clics
             </h3>
             <p className="booking-note">Réservez votre coupe, skinfade ou taille de barbe en direct. C’est rapide et 100 % sécurisé.</p>
-            <div className="setmore-frame">
+            <div className="setmore-frame" id="booking-embed">
               <iframe
                 title="Réservation Melobarber — Setmore"
                 src={SETMORE_URL}

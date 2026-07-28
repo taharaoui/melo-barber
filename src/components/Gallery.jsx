@@ -6,9 +6,8 @@ export default function Gallery({ gallery }) {
       <div className="groove-bg" />
       <div className="wrap">
         <div className="section-head on-ink reveal">
-          <span className="eyebrow">Galerie</span>
-          <h2 id="gallery-title">Quelques visuels de notre univers</h2>
-          <p>Des coupes nettes, des finitions soignées et une ambiance de salon à la hauteur de vos attentes.</p>
+          <span className="eyebrow eyebrow-white">Galerie</span>
+          <h2 id="gallery-title" className="section-heading-light">Quelques visuels de notre univers</h2>
         </div>
 
         <div className="gallery-simple reveal">

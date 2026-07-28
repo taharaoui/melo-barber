@@ -51,20 +51,20 @@ export default function Footer() {
           <div>
             <h4>Horaires</h4>
             <ul>
-              <li>Vendredi · 9h00–18h30</li>
-              <li>Samedi · 9h00–18h30</li>
-              <li>Dimanche · 10h30–14h30</li>
               <li>Lundi · Fermé</li>
               <li>Mardi · 10h00–18h00</li>
               <li>Mercredi · 10h00–18h00</li>
               <li>Jeudi · 9h00–18h30</li>
+              <li>Vendredi · 9h00–18h30</li>
+              <li>Samedi · 9h00–18h30</li>
+              <li>Dimanche · 10h30–14h30</li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
           <span className="footer-listen">Un salon à votre écoute</span>
           <span>© 2026 Melobarber. Tous droits réservés.</span>
-          <span>Fait avec des mains sûres à Saint-Eustache, QC</span>
+          <span>Fait par Souketing Agency</span>
         </div>
       </div>
     </footer>
