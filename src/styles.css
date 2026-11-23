@@ -417,6 +417,19 @@ html, body{ margin:0; padding:0; background:var(--black); }
    AVIS
    ========================================================================== */
 .melo-root .testimonials-embed{ min-height:320px; }
+.melo-root .testimonials-embed.is-error{ min-height:0; }
+.melo-root .reviews-fallback{
+  display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:24px 40px;
+  padding:clamp(28px, 4vw, 48px) 0; border-top:1px solid var(--rule-on-dark); border-bottom:1px solid var(--rule-on-dark);
+}
+.melo-root .reviews-fallback__score{ font-family:var(--font-display); font-size:var(--fs-display); font-weight:600; line-height:1; color:var(--cream); }
+.melo-root .reviews-fallback__score span{ font-size:var(--fs-xl); color:var(--gray-warm); }
+.melo-root .reviews-fallback__stars{ display:inline-flex; gap:3px; color:var(--copper); margin-bottom:8px; }
+.melo-root .reviews-fallback__note{ margin-top:4px; font-size:var(--fs-sm); color:var(--gray-warm); }
+
+@media (max-width: 600px){
+  .melo-root .reviews-fallback{ grid-template-columns:1fr; }
+}
 
 /* ==========================================================================
    RÉSERVATION ET HORAIRES
