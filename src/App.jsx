@@ -8,7 +8,6 @@ import FAQ from "./components/FAQ.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import BackToTop from "./components/ui/BackToTop.jsx";
-import SectionDivider from "./components/ui/SectionDivider.jsx";
 
 import { services } from "./data/services.js";
 import { gallery } from "./data/gallery.js";

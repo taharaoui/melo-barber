@@ -81,14 +81,6 @@ html{ scroll-behavior:smooth; }
   height:6px; width:100%;
   background:repeating-linear-gradient(115deg, var(--rust) 0 26px, var(--cream) 26px 30px, var(--steel) 30px 56px, var(--cream) 56px 60px);
 }
-.melo-root .section-separator{
-  height:8px;
-  width:min(100%, 1180px);
-  margin:28px auto 0;
-  border-radius:999px;
-  background:linear-gradient(90deg, rgba(165,110,60,0.95) 0%, rgba(199,159,108,0.9) 50%, rgba(165,110,60,0.95) 100%);
-  box-shadow:0 10px 24px rgba(0,0,0,0.16);
-}
 .melo-root .groove-bg{
   position:absolute; inset:0; pointer-events:none;
   background-image:repeating-radial-gradient(circle at 82% 18%, rgba(246,241,231,0.05) 0px, rgba(246,241,231,0.05) 1px, transparent 1px, transparent 9px);
@@ -110,9 +102,6 @@ html{ scroll-behavior:smooth; }
 }
 .melo-root .logo{ display:flex; align-items:center; gap:12px; }
 .melo-root .logo img{ height:56px; width:auto; }
-.melo-root .brand-text{ font-family:'Oswald', sans-serif; font-size:0.95rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.95; }
-.melo-root .brand-text.white{ color:var(--cream); }
-.melo-root .brand-text.gold{ color:var(--brass); }
 .melo-root nav.nav-links{ display:flex; gap:34px; }
 .melo-root nav.nav-links ul{ display:flex; gap:34px; align-items:center; margin:0; padding:0; }
 .melo-root nav.nav-links li{ list-style:none; }
@@ -188,54 +177,7 @@ html{ scroll-behavior:smooth; }
 .melo-root button[type="submit"]:focus-visible{
   outline:none; box-shadow:0 0 0 3px rgba(199,159,108,0.28); transform:translateY(-1px);
 }
-.melo-root .hero-visual{ position:relative; display:flex; justify-content:center; align-items:center; height:520px; }
-.melo-root .hero-photo-card{
-  position:relative; width:min(100%, 520px); border-radius:28px; overflow:hidden;
-  border:1px solid rgba(250,248,244,0.08);
-  box-shadow:0 32px 64px var(--shadow-light);
-  animation:hero-photo-float 5.8s ease-in-out infinite;
-}
-.melo-root .hero-photo-card img{ display:block; width:100%; height:100%; object-fit:cover; }
-.melo-root .hero-photo-badge{
-  position:absolute; top:18px; left:18px; background:var(--brass); color:var(--ink); padding:10px 16px; border-radius:999px;
-  font-family:'Oswald', sans-serif; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase;
-}
-.melo-root .hero-photo-card::before{
-  content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(140deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 40%);
-  mix-blend-mode:screen;
-}
-.melo-root .pole-housing{
-  position:relative; width:140px; height:380px; border-radius:70px;
-  background:linear-gradient(180deg, var(--brass-light), var(--brass) 8%, var(--brass) 92%, var(--brass-light));
-  padding:14px; box-shadow:0 30px 60px rgba(0,0,0,0.45), inset 0 0 0 2px rgba(0,0,0,0.15);
-}
-.melo-root .pole-tube{ width:100%; height:100%; border-radius:60px; overflow:hidden; position:relative; box-shadow:inset 0 0 18px rgba(0,0,0,0.4); }
-.melo-root .pole-stripes{
-  position:absolute; top:-60%; left:-40%; width:180%; height:220%;
-  background:repeating-linear-gradient(45deg, var(--rust) 0 24px, var(--cream) 24px 30px, var(--steel) 30px 54px, var(--cream) 54px 60px);
-  animation:melo-pole-spin 3.2s linear infinite;
-}
-@keyframes melo-pole-spin{ from{ transform:translateY(0); } to{ transform:translateY(60px); } }
-@keyframes hero-photo-float{ 0%,100%{ transform:translateY(0) rotate(-0.2deg); } 50%{ transform:translateY(-10px) rotate(0.6deg); } }
-.melo-root .pole-cap{ position:absolute; left:14px; right:14px; height:26px; background:linear-gradient(180deg, var(--brass-light), var(--brass)); border-radius:40% 40% 0 0 / 100% 100% 0 0; }
-.melo-root .pole-cap.top{ top:-4px; }
-.melo-root .pole-cap.bottom{ bottom:-4px; transform:rotate(180deg); }
-.melo-root .hero-note{
-  position:absolute; bottom:18px; left:18px; background:rgba(22,18,15,0.72); border:1px solid rgba(242,223,180,0.18);
-  padding:10px 16px; font-family:'Oswald', sans-serif; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;
-  color:var(--cream); display:flex; gap:8px; align-items:center;
-}
-.melo-root .hero-note .dot{ width:6px; height:6px; border-radius:50%; background:var(--brass); animation:melo-pulse 1.6s ease-in-out infinite; }
-@keyframes melo-pulse{ 0%,100%{opacity:1;} 50%{opacity:0.3;} }
 @keyframes cta-breathe{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-2px); } }
-
-@media (max-width: 900px){
-  .melo-root .hero-grid{ grid-template-columns:1fr; }
-  .melo-root .hero-visual{ height:360px; order:-1; }
-  .melo-root .hero-photo-card{ width:min(100%, 460px); }
-  .melo-root .pole-housing{ width:100px; height:260px; }
-}
 
 /* SECTION HEADS */
 .melo-root .section-head{ max-width:620px; margin-bottom:56px; }
@@ -286,36 +228,13 @@ html{ scroll-behavior:smooth; }
 .melo-root .service-promo strong{ color:var(--cream); }
 @media (max-width: 860px){ .melo-root .services-grid{ grid-template-columns:1fr; } }
 
-/* PRICING */
-.melo-root section.pricing{ position:relative; background:#0e0e0e; color:#f9f1e7; padding:120px 0; }
-.melo-root section.pricing .section-head h2,
-.melo-root section.pricing .section-head p,
-.melo-root section.pricing .section-head .eyebrow{ color:#f9f1e7; }
-.melo-root .pricing-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; }
-.melo-root .pricing-card{ background:rgba(249,241,231,0.96); color:var(--ink); border:1px solid rgba(199,159,108,0.28); border-radius:16px; padding:32px; display:flex; flex-direction:column; gap:16px; position:relative; }
-.melo-root .pricing-card.popular{ border-color:var(--brass); box-shadow:0 20px 45px rgba(0,0,0,0.18); }
-.melo-root .pricing-badge{ position:absolute; top:16px; right:16px; background:var(--brass); color:var(--ink); padding:6px 10px; font-family:'Oswald', sans-serif; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; border-radius:999px; }
-.melo-root .pricing-price{ font-size:2rem; font-family:'Fraunces', serif; color:var(--rust); }
-.melo-root .pricing-card ul{ display:flex; flex-direction:column; gap:10px; color:#4f4a45; }
-.melo-root .pricing-card li::before{ content:"•"; color:var(--rust); margin-right:8px; }
-.melo-root .pricing-card .btn-primary{ align-self:flex-start; }
-@media (max-width: 860px){ .melo-root .pricing-grid{ grid-template-columns:1fr; } }
-
 /* TÉMOIGNAGES */
 .melo-root section.testimonials{ position:relative; background:#0e0e0e; padding:120px 0; }
 .melo-root section.testimonials .section-head h2,
 .melo-root section.testimonials .section-head p,
 .melo-root section.testimonials .section-head .eyebrow{ color:#f9f1e7; }
-.melo-root .testimonials-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
-.melo-root .testimonial-card{ background:rgba(249,241,231,0.96); border:1px solid rgba(199,159,108,0.24); border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:14px; }
-.melo-root .testimonial-rating{ color:var(--brass); letter-spacing:0.18em; }
-.melo-root .testimonial-card p{ color:#4f4a45; margin:0; }
-.melo-root .testimonial-meta{ display:flex; flex-direction:column; gap:4px; }
-.melo-root .testimonial-meta span{ color:#5f5a55; font-size:0.9rem; }
 .melo-root .testimonials-embed{ margin-top:28px; border-radius:16px; overflow:hidden; background:transparent; border:none; padding:0; }
 .melo-root .testimonials-embed .elfsight-app-c661c44c-1325-48fc-b78c-ffff61fb2005{ width:100%; min-height:320px; }
-@media (max-width: 860px){ .melo-root .testimonials-grid{ grid-template-columns:1fr; } }
-
 /* GALERIE */
 .melo-root section.gallery{ position:relative; background:var(--ink); padding:120px 0; overflow:hidden; }
 .melo-root .gallery-simple{ display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:20px; }
@@ -350,36 +269,6 @@ html{ scroll-behavior:smooth; }
 .melo-root .team-action.icon-action svg{ width:20px; height:20px; object-fit:contain; }
 @media (max-width: 860px){ .melo-root .team-grid{ grid-template-columns:1fr; } }
 
-/* LOYALTY / MELO REWARDS */
-.melo-root .loyalty-section{ position:relative; padding:28px 0 40px; }
-.melo-root .loyalty-section::before{
-  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
-  background: linear-gradient(180deg, rgba(14,14,14,0.04) 0%, rgba(10,10,10,0.02) 60%);
-}
-.melo-root .loyalty-card{ position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center; padding:28px; border-radius:16px; backdrop-filter:blur(8px); background:linear-gradient(180deg, rgba(249,241,231,0.98), rgba(249,241,231,0.96)); box-shadow:0 24px 60px rgba(11,10,10,0.28); border:1px solid rgba(165,110,60,0.12); }
-.melo-root .loyalty-media{ padding:6px 12px; }
-.melo-root .loyalty-badge{ display:inline-block; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:0.14em; font-size:0.68rem; color:var(--rust); background:rgba(165,110,60,0.06); border-radius:999px; padding:8px 12px; border:1px solid rgba(165,110,60,0.08); }
-.melo-root .loyalty-media h3{ margin:12px 0 8px; font-size:1.28rem; color:var(--ink); }
-.melo-root .loyalty-desc{ color:rgba(47,42,36,0.72); margin-bottom:16px; max-width:520px; }
-.melo-root .loyalty-cta-row{ display:flex; gap:12px; align-items:center; }
-.melo-root .loyalty-cta{ display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:999px; background:var(--rust); color:var(--cream); text-transform:uppercase; font-family:'Oswald',sans-serif; letter-spacing:0.08em; font-weight:700; box-shadow:0 10px 30px rgba(165,110,60,0.14); border:1px solid rgba(165,110,60,0.18); }
-.melo-root .loyalty-cta:hover{ background:var(--brass); color:var(--ink); transform:translateY(-2px); }
-.melo-root .loyalty-more{ color:var(--ink); opacity:0.7; font-size:0.95rem; }
-.melo-root .loyalty-benefits{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-.melo-root .benefit-card{ display:flex; gap:14px; align-items:flex-start; padding:14px; border-radius:12px; background:linear-gradient(180deg, rgba(14,14,14,0.02), rgba(14,14,14,0.01)); border:1px solid rgba(23,19,18,0.04); box-shadow:0 8px 20px rgba(11,10,10,0.06); }
-.melo-root .benefit-icon{ width:46px; height:46px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(180deg, rgba(165,110,60,0.06), rgba(165,110,60,0.02)); color:var(--rust); border:1px solid rgba(165,110,60,0.12); }
-.melo-root .benefit-card h4{ margin:0; font-size:0.95rem; color:var(--ink); font-weight:600; }
-.melo-root .benefit-card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(11,10,10,0.08); }
-
-@media (max-width: 980px){
-  .melo-root .loyalty-card{ grid-template-columns:1fr; }
-  .melo-root .loyalty-benefits{ grid-template-columns:repeat(2, 1fr); }
-}
-
-@media (max-width: 520px){
-  .melo-root .loyalty-benefits{ grid-template-columns:1fr; }
-}
-
 /* FAQ */
 .melo-root section.faq{ position:relative; background:#0e0e0e; padding:120px 0; }
 .melo-root section.faq .section-head h2,
@@ -403,24 +292,6 @@ html{ scroll-behavior:smooth; }
 .melo-root .contact-map-card iframe{ width:100%; min-height:320px; border:0; border-radius:14px; }
 .melo-root .back-to-top{ position:fixed; right:24px; bottom:24px; width:48px; height:48px; border-radius:50%; background:var(--rust); color:var(--cream); display:grid; place-items:center; box-shadow:0 14px 28px rgba(0,0,0,0.18); z-index:120; }
 @media (max-width: 860px){ .melo-root .contact-grid{ grid-template-columns:1fr; } }
-
-/* A PROPOS */
-.melo-root section.about{ position:relative; background:#0e0e0e; padding:120px 0; }
-.melo-root .about-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center; }
-.melo-root .about-portrait{
-  position:relative; aspect-ratio:4/5; border-radius:4px;
-  background:repeating-linear-gradient(135deg, rgba(22,26,31,0.06) 0 2px, transparent 2px 14px), linear-gradient(160deg, var(--steel), var(--ink) 70%);
-  display:flex; align-items:flex-end; padding:26px;
-}
-.melo-root .about-portrait span{ font-family:'Oswald', sans-serif; color:var(--cream); font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.85; }
-.melo-root .about-copy h2,
-.melo-root .about-copy p,
-.melo-root .about-copy .eyebrow{ color:var(--rust); }
-.melo-root .about-copy p{ color:rgba(249,241,231,0.82); margin-bottom:18px; max-width:520px; }
-.melo-root .about-stats{ display:flex; gap:40px; margin-top:30px; border-top:1px solid rgba(249,241,231,0.16); padding-top:26px; }
-.melo-root .stat b{ font-family:'Fraunces', serif; font-size:1.9rem; display:block; color:var(--rust); }
-.melo-root .stat span{ font-family:'Oswald', sans-serif; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(249,241,231,0.72); }
-@media (max-width: 860px){ .melo-root .about-grid{ grid-template-columns:1fr; } }
 
 /* HORAIRES / RESERVATION */
 .melo-root section.booking{ position:relative; background:var(--ink); padding:120px 0; }

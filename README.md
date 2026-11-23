@@ -24,5 +24,6 @@ npx vercel --prod
 ```
 
 Notes:
-- Le composant principal est `Melobarber.jsx` à la racine. Le point d'entrée Vite est `src/main.jsx`.
-- Pour améliorations futures, on peut extraire le CSS dans un fichier séparé, scinder les composants et ajouter un pipeline CI.
+- Point d'entrée Vite : `src/main.jsx`, page : `src/App.jsx`, sections : `src/components/`.
+- Infos du salon (horaires, téléphone, adresse, réseaux) : `src/data/business.js`, source unique utilisée partout.
+- Fichiers statiques servis tels quels (favicon, image de partage) : `public/`.
