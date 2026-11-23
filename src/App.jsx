@@ -114,6 +114,7 @@ export default function App() {
       <section
         className="hero component-dark"
         id="accueil"
+        aria-labelledby="hero-title"
         style={{
           backgroundImage: `linear-gradient(100deg, rgba(10, 8, 6, 0.95) 0%, rgba(10, 8, 6, 0.78) 40%, rgba(10, 8, 6, 0.36) 100%), url(https://i.postimg.cc/c0xbKv75/photo-1705976062088-5433328c2dcd.avif)`,
         }}
@@ -122,7 +123,7 @@ export default function App() {
         <div className="wrap hero-grid">
           <div className="hero-copy reveal is-visible">
             <div className="hero-eyebrow eyebrow">Barbier de quartier · Bonne ambiance depuis toujours</div>
-            <h1>
+            <h1 id="hero-title">
               Dégradés nets,
               <br />
               <em>style</em> maîtrisé.
@@ -149,11 +150,11 @@ export default function App() {
       <div className="stripe-rule" />
       <Gallery gallery={gallery} />
       <div className="stripe-rule" />
-      <section className="booking component-dark" id="booking">
+      <section className="booking component-dark" id="booking" aria-labelledby="booking-title">
         <div className="wrap booking-grid">
           <div className="reveal">
             <span className="eyebrow">Horaires</span>
-            <h2 className="section-heading-light">Nos heures d'ouverture</h2>
+            <h2 id="booking-title" className="section-heading-light">Nos heures d'ouverture</h2>
             <table className="hours-table">
               <tbody>
                 {business.hours.map((entry) => (

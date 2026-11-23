@@ -6,6 +6,7 @@ export default function Services({ services, icons }) {
     <section className="services" id="services" aria-labelledby="services-title">
       <div className="wrap">
         <SectionHeading
+          id="services-title"
           eyebrow="Services"
           title="Des prestations premium, pensées pour durer"
           description="Chaque visite commence par une consultation claire, un résultat précis et une expérience soignée, du premier coup de ciseaux à la fin de la séance."

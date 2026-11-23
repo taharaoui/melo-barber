@@ -9,6 +9,7 @@ export default function FAQ({ faq }) {
     <section className="faq" id="faq" aria-labelledby="faq-title">
       <div className="wrap">
         <SectionHeading
+          id="faq-title"
           eyebrow="FAQ"
           title="Questions fréquentes"
           description="Tout ce qu’il faut savoir avant votre prochaine visite."

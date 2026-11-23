@@ -42,10 +42,10 @@ export default function Footer() {
                 <a href="#galerie">Galerie</a>
               </li>
               <li>
-                <a href="#a-propos">À propos de la boutique</a>
+                <a href="#team">L'équipe</a>
               </li>
               <li>
-                <a href="#horaires">Horaires &amp; réservation</a>
+                <a href="#booking">Horaires &amp; réservation</a>
               </li>
             </ul>
           </div>

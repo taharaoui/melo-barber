@@ -8,6 +8,7 @@ export default function Team({ team }) {
     <section className="team" id="team" aria-labelledby="team-title">
       <div className="wrap">
         <SectionHeading
+          id="team-title"
           eyebrow="L'équipe"
           title="Des professionnels qui savent écouter"
           description="Une équipe discrète, attentive et experte pour un rendu impeccable à chaque visite."
