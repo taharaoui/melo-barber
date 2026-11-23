@@ -82,6 +82,7 @@
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
+html, body{ margin:0; padding:0; background:var(--black); }
 .melo-root *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 .melo-root h1,.melo-root h2,.melo-root h3{
@@ -348,7 +349,10 @@ html{ scroll-behavior:smooth; }
 .melo-root section.contact .section-head .eyebrow{ color:var(--cream); }
 .melo-root .contact-grid{ display:grid; grid-template-columns:0.95fr 1.05fr; gap:32px; align-items:start; }
 .melo-root .contact-list{ display:flex; flex-direction:column; gap:16px; margin-top:24px; color:rgb(var(--cream-rgb) / 0.82); }
+.melo-root .contact-list li{ display:grid; grid-template-columns:7.5rem 1fr; gap:16px; align-items:baseline; }
+.melo-root .contact-list strong{ font-weight:500; font-size:var(--fs-2xs); letter-spacing:var(--tracking-label); text-transform:uppercase; }
 .melo-root .contact-list a{ color:var(--brass-light); }
+@media (max-width: 420px){ .melo-root .contact-list li{ grid-template-columns:1fr; gap:2px; } }
 .melo-root .contact-map-card{ display:flex; flex-direction:column; gap:16px; padding:24px; border:1px solid rgb(var(--copper-rgb) / 0.24); border-radius:20px; background:rgb(var(--cream-rgb) / 0.96); }
 .melo-root .contact-map-card iframe{ width:100%; min-height:320px; border:0; border-radius:14px; }
 .melo-root .back-to-top{ position:fixed; right:24px; bottom:24px; width:48px; height:48px; border-radius:50%; background:var(--copper); color:var(--black); display:grid; place-items:center; box-shadow:0 14px 28px rgb(0 0 0 / 0.18); z-index:120; }
