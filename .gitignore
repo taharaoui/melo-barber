@@ -1,0 +1,17 @@
+# Dépendances
+node_modules/
+
+# Build
+dist/
+
+# Environnement
+.env
+.env.*
+!.env.example
+.vercel
+
+# Logs
+npm-debug.log*
+
+# Système
+.DS_Store
