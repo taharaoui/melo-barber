@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import SectionHeading from "./ui/SectionHeading.jsx";
 
 export default function Testimonials() {
   const widgetRef = useRef(null);
@@ -18,13 +19,14 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="testimonials" id="temoignages" aria-labelledby="testimonials-title">
+    <section className="testimonials section section--dark" id="temoignages" aria-labelledby="testimonials-title">
       <div className="wrap">
-        <div className="section-head reveal">
-          <span className="eyebrow">Avis clients</span>
-          <h2 id="testimonials-title">La preuve du savoir-faire</h2>
-          <p>Des clients réguliers, des résultats constants et une réputation bâtie sur la précision, le confort et la qualité.</p>
-        </div>
+        <SectionHeading
+          id="testimonials-title"
+          eyebrow="Avis clients"
+          title="Ce qu'en disent nos clients"
+          description="Des clients réguliers, des résultats constants et une réputation bâtie sur la précision et le confort."
+        />
 
         <div className="testimonials-embed reveal" ref={widgetRef}>
           <div className="elfsight-app-c661c44c-1325-48fc-b78c-ffff61fb2005" data-elfsight-app-lazy></div>

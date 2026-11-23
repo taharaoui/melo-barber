@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavLinkItem from "./ui/NavLinkItem.jsx";
 import NavActionButton from "./ui/NavActionButton.jsx";
 import Icon from "./ui/Icon.jsx";
 
 export default function Header({ logoSrc, navLinks, menuOpen, setMenuOpen }) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="site-nav component-dark">
+    <header className={`site-nav ${scrolled || menuOpen ? "is-solid" : ""}`}>
       <div className="nav-inner">
         <a href="#accueil" className="logo" aria-label="Melo Barber, retour à l'accueil">
           <img src={logoSrc} alt="Melo Barber" width="170" height="64" />
@@ -20,7 +29,7 @@ export default function Header({ logoSrc, navLinks, menuOpen, setMenuOpen }) {
             {navLinks.map((l) => (
               <NavLinkItem key={l.href} href={l.href} label={l.label} onClick={() => setMenuOpen(false)} />
             ))}
-            <li>
+            <li className="nav-links__cta">
               <NavActionButton href="#booking" className="nav-cta-mobile" onClick={() => setMenuOpen(false)}>
                 Réserver
               </NavActionButton>

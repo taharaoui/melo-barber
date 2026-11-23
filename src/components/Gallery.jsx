@@ -1,30 +1,29 @@
 import React from "react";
+import SectionHeading from "./ui/SectionHeading.jsx";
+import Icon from "./ui/Icon.jsx";
+import { business } from "../data/business.js";
 
 export default function Gallery({ gallery }) {
   return (
-    <section className="gallery" id="galerie" aria-labelledby="gallery-title">
-      <div className="groove-bg" />
+    <section className="gallery section section--light" id="galerie" aria-labelledby="gallery-title">
       <div className="wrap">
-        <div className="section-head on-ink reveal">
-          <span className="eyebrow eyebrow-white">Galerie</span>
-          <h2 id="gallery-title" className="section-heading-light">Quelques visuels de notre univers</h2>
+        <div className="gallery-head">
+          <SectionHeading id="gallery-title" eyebrow="Galerie" title="Le travail, de près" />
+          <a className="link-arrow reveal" href={business.social.instagram.url} target="_blank" rel="noreferrer">
+            {business.social.instagram.handle} sur Instagram <Icon name="arrowRight" size={16} />
+          </a>
         </div>
 
-        <div className="gallery-simple reveal">
-          {gallery.slice(0, 4).map((item) => (
-            <article className="gallery-simple-card" key={item.id}>
-              <img src={item.image} alt={item.caption} loading="lazy" />
-              <div className="gallery-simple-content">
-                <h3>{item.title}</h3>
-                <p>{item.caption}</p>
-              </div>
-            </article>
+        <div className="gallery-grid reveal">
+          {gallery.map((item) => (
+            <figure className="gallery-item" key={item.id}>
+              <img src={item.image} alt={item.caption} loading="lazy" decoding="async" />
+              <figcaption>
+                <span className="gallery-item__title">{item.title}</span>
+                <span className="gallery-item__caption">{item.caption}</span>
+              </figcaption>
+            </figure>
           ))}
-        </div>
-
-        <div className="gallery-inline-cta reveal">
-          <p>Prêt à vivre la même expérience ?</p>
-          <a href="#booking" className="btn-primary">Réserver maintenant</a>
         </div>
       </div>
     </section>

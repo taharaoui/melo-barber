@@ -1,17 +1,20 @@
 import React from "react";
 import { business, formatHours, fullAddress } from "../data/business.js";
 import Icon from "./ui/Icon.jsx";
+import logo from "../assets/logo.svg";
 
 export default function Footer() {
   return (
-    <footer className="site-footer component-dark">
+    <footer className="site-footer">
       <div className="wrap">
         <div className="footer-grid">
-          <div>
-            <h4>{business.name}</h4>
-            <p style={{ maxWidth: 340 }}>{fullAddress}</p>
+          <div className="footer-brand">
+            <img src={logo} alt="Melo Barber" width="170" height="64" className="footer-logo" loading="lazy" />
+            <p>{fullAddress}</p>
             <p>
-              <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a> · <a href={`mailto:${business.email}`}>{business.email}</a>
+              <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a>
+              <br />
+              <a href={`mailto:${business.email}`}>{business.email}</a>
             </p>
             <div className="social-row">
               <a href={business.social.instagram.url} target="_blank" rel="noreferrer" aria-label="Instagram Melo Barber">
@@ -25,34 +28,29 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div>
-            <h4>Explorer</h4>
+          <nav aria-label="Liens du pied de page">
+            <h2 className="footer-title">Explorer</h2>
             <ul>
-              <li>
-                <a href="#services">Services</a>
-              </li>
-              <li>
-                <a href="#galerie">Galerie</a>
-              </li>
-              <li>
-                <a href="#team">L'équipe</a>
-              </li>
-              <li>
-                <a href="#booking">Horaires &amp; réservation</a>
-              </li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#galerie">Galerie</a></li>
+              <li><a href="#team">L'équipe</a></li>
+              <li><a href="#booking">Horaires &amp; réservation</a></li>
+              <li><a href="#faq">FAQ</a></li>
             </ul>
-          </div>
+          </nav>
           <div>
-            <h4>Horaires</h4>
-            <ul>
+            <h2 className="footer-title">Horaires</h2>
+            <ul className="footer-hours">
               {business.hours.map((entry) => (
-                <li key={entry.day}>{entry.label} · {formatHours(entry)}</li>
+                <li key={entry.day}>
+                  <span>{entry.label}</span>
+                  <span>{formatHours(entry)}</span>
+                </li>
               ))}
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
-          <span className="footer-listen">Un salon à votre écoute</span>
           <span>© {new Date().getFullYear()} {business.name}. Tous droits réservés.</span>
           <span>Fait par Souketing Agency</span>
         </div>

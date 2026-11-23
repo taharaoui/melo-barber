@@ -7,8 +7,8 @@ export default function FAQ({ faq }) {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="faq" id="faq" aria-labelledby="faq-title">
-      <div className="wrap">
+    <section className="faq section section--dark" id="faq" aria-labelledby="faq-title">
+      <div className="wrap faq-layout">
         <SectionHeading
           id="faq-title"
           eyebrow="FAQ"
@@ -16,23 +16,28 @@ export default function FAQ({ faq }) {
           description="Tout ce qu’il faut savoir avant votre prochaine visite."
         />
 
-        <div className="faq-list">
+        <div className="faq-list reveal">
           {faq.map((item, index) => {
             const isOpen = openIndex === index;
+            const answerId = `faq-answer-${index}`;
             return (
               <article className={`faq-item ${isOpen ? "open" : ""}`} key={item.question}>
-                <button
-                  type="button"
-                  className="faq-question"
-                  aria-expanded={isOpen}
-                  onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                >
-                  <span>{item.question}</span>
-                  <span className="faq-toggle"><Icon name={isOpen ? "minus" : "plus"} size={18} /></span>
-                </button>
+                <h3 className="faq-heading">
+                  <button
+                    type="button"
+                    className="faq-question"
+                    aria-expanded={isOpen}
+                    aria-controls={answerId}
+                    onClick={() => setOpenIndex(isOpen ? -1 : index)}
+                  >
+                    <span>{item.question}</span>
+                    <span className="faq-toggle"><Icon name={isOpen ? "minus" : "plus"} size={18} /></span>
+                  </button>
+                </h3>
                 <AnimatePresence initial={false}>
                   {isOpen ? (
                     <motion.div
+                      id={answerId}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

@@ -4,49 +4,49 @@ import Icon from "./ui/Icon.jsx";
 
 export default function Team({ team }) {
   return (
-    <section className="team" id="team" aria-labelledby="team-title">
+    <section className="team section section--dark" id="team" aria-labelledby="team-title">
       <div className="wrap">
         <SectionHeading
           id="team-title"
           eyebrow="L'équipe"
-          title="Des professionnels qui savent écouter"
-          description="Une équipe discrète, attentive et experte pour un rendu impeccable à chaque visite."
+          title="Deux paires de mains, une même exigence"
+          description="Une équipe discrète, attentive et experte, pour un rendu impeccable à chaque visite."
         />
 
-        <div className="team-grid reveal">
+        <div className="team-grid">
           {team.slice(0, 2).map((member) => (
-            <article className="team-card" key={member.id}>
+            <article className="team-card reveal" key={member.id}>
               <div className="team-photo-frame">
-                <img src={member.image} alt={`Portrait de ${member.name}`} loading="lazy" />
+                <img src={member.image} alt={`Portrait de ${member.name}`} loading="lazy" decoding="async" />
               </div>
 
               <div className="team-content">
-                <div>
-                  <h3>{member.name}</h3>
-                  <p className="team-specialty">{member.specialty}</p>
-                </div>
+                <p className="label team-specialty">{member.specialty}</p>
+                <h3 className="team-name">{member.name}</h3>
                 <p className="team-experience">{member.experience}</p>
                 {member.instagram ? <p className="team-handle">{member.instagram}</p> : null}
 
                 <div className="team-actions">
-                  <a className="team-action" href={`#booking-embed`} aria-label={`Réserver avec ${member.name}`}>
-                    Réserver
+                  <a className="link-arrow" href="#booking-embed" aria-label={`Réserver avec ${member.name}`}>
+                    Réserver avec {member.name} <Icon name="arrowRight" size={16} />
                   </a>
-                  {member.phone ? (
-                  <a className="team-action icon-action" href={`tel:${member.phone.replace(/[^0-9+]/g, "")}`} aria-label={`Appeler ${member.name}`}>
-                    <Icon name="phone" />
-                  </a>
-                  ) : null}
-                  {member.instagramUrl ? (
-                  <a className="team-action icon-action" href={member.instagramUrl} target="_blank" rel="noreferrer" aria-label={`Voir Instagram de ${member.name}`}>
-                    <Icon name="instagram" />
-                  </a>
-                  ) : null}
-                  {member.phone ? (
-                  <a className="team-action icon-action" href={`https://wa.me/${member.phone.replace(/[^0-9]/g, "")}`} target="_blank" rel="noreferrer" aria-label={`Contacter ${member.name} sur WhatsApp`}>
-                    <Icon name="whatsapp" />
-                  </a>
-                  ) : null}
+                  <div className="team-icons">
+                    {member.phone ? (
+                      <a className="icon-button" href={`tel:${member.phone.replace(/[^0-9+]/g, "")}`} aria-label={`Appeler ${member.name}`}>
+                        <Icon name="phone" />
+                      </a>
+                    ) : null}
+                    {member.instagramUrl ? (
+                      <a className="icon-button" href={member.instagramUrl} target="_blank" rel="noreferrer" aria-label={`Voir Instagram de ${member.name}`}>
+                        <Icon name="instagram" />
+                      </a>
+                    ) : null}
+                    {member.phone ? (
+                      <a className="icon-button" href={`https://wa.me/${member.phone.replace(/[^0-9]/g, "")}`} target="_blank" rel="noreferrer" aria-label={`Contacter ${member.name} sur WhatsApp`}>
+                        <Icon name="whatsapp" />
+                      </a>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             </article>
