@@ -1,8 +1,9 @@
 import React from "react";
 import SectionHeading from "./ui/SectionHeading.jsx";
 import Icon from "./ui/Icon.jsx";
+import { business } from "../data/business.js";
 
-export default function Team({ team }) {
+export default function Team({ team, onBook }) {
   return (
     <section className="team section section--dark" id="team" aria-labelledby="team-title">
       <div className="wrap">
@@ -27,7 +28,15 @@ export default function Team({ team }) {
                 {member.instagram ? <p className="team-handle">{member.instagram}</p> : null}
 
                 <div className="team-actions">
-                  <a className="link-arrow" href="#booking-embed" aria-label={`Réserver avec ${member.name}`}>
+                  <a
+                    className="link-arrow"
+                    href={member.bookingUrl || business.bookingUrl}
+                    aria-label={`Réserver avec ${member.name}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onBook(member.bookingUrl || business.bookingUrl, `Avec ${member.name}`);
+                    }}
+                  >
                     Réserver avec {member.name} <Icon name="arrowRight" size={16} />
                   </a>
                   <div className="team-icons">

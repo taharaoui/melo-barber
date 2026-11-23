@@ -10,6 +10,7 @@ import Booking from "./components/Booking.jsx";
 import FAQ from "./components/FAQ.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
+import MobileBookingBar from "./components/MobileBookingBar.jsx";
 import BackToTop from "./components/ui/BackToTop.jsx";
 
 import { services } from "./data/services.js";
@@ -59,7 +60,16 @@ function useReveal() {
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [bookingSelection, setBookingSelection] = useState(null);
   const rootRef = useReveal();
+
+  // Charge le lien Setmore précis (service ou barbier) dans le module de réservation.
+  const openBooking = (url, label) => {
+    setBookingSelection({ url, label });
+    const panel = document.getElementById("booking-embed");
+    panel?.scrollIntoView({ block: "start" });
+    panel?.focus({ preventScroll: true });
+  };
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -81,21 +91,22 @@ export default function App() {
       <main id="main">
         <Hero image={HERO_IMAGE} />
 
-        <Services services={services} />
+        <Services services={services} onBook={openBooking} />
         <PhotoBand
           image={haircutPhoto}
           alt="Dégradé à la tondeuse en cours au salon Melo Barber"
           quote="Un contour propre, ça ne se bâcle pas."
           signature="L'esprit Melo"
         />
-        <Team team={teamData} />
+        <Team team={teamData} onBook={openBooking} />
         <Gallery gallery={gallery} />
         <Testimonials />
-        <Booking />
+        <Booking selection={bookingSelection} onReset={() => setBookingSelection(null)} />
         <FAQ faq={faq} />
         <Contact />
       </main>
       <Footer />
+      <MobileBookingBar hidden={menuOpen} />
       <BackToTop />
     </div>
   );

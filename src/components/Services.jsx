@@ -5,7 +5,7 @@ import Icon from "./ui/Icon.jsx";
 // "$35" -> "35 $" (usage québécois)
 const formatPrice = (price) => `${price.replace(/[^0-9.,]/g, "")} $`;
 
-export default function Services({ services }) {
+export default function Services({ services, onBook }) {
   return (
     <section className="services section section--light" id="services" aria-labelledby="services-title">
       <div className="wrap">
@@ -43,7 +43,15 @@ export default function Services({ services }) {
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
-                <a href="#booking-embed" className="link-arrow menu-item__book" aria-label={`Réserver : ${service.name}`}>
+                <a
+                  href={service.link}
+                  className="link-arrow menu-item__book"
+                  aria-label={`Réserver : ${service.name}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onBook(service.link, `${title} · ${formatPrice(service.price)}`);
+                  }}
+                >
                   Réserver <Icon name="arrowRight" size={16} />
                 </a>
               </li>
