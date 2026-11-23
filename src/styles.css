@@ -101,7 +101,8 @@ html{ scroll-behavior:smooth; }
   display:flex; align-items:center; justify-content:space-between;
 }
 .melo-root .logo{ display:flex; align-items:center; gap:12px; }
-.melo-root .logo img{ height:56px; width:auto; }
+.melo-root .logo img{ height:64px; width:auto; }
+@media (max-width: 860px){ .melo-root .logo img{ height:56px; } }
 .melo-root nav.nav-links{ display:flex; gap:34px; }
 .melo-root nav.nav-links ul{ display:flex; gap:34px; align-items:center; margin:0; padding:0; }
 .melo-root nav.nav-links li{ list-style:none; }

@@ -6,8 +6,8 @@ export default function Header({ logoSrc, navLinks, menuOpen, setMenuOpen }) {
   return (
     <header className="site-nav component-dark">
       <div className="nav-inner">
-        <a href="#accueil" className="logo">
-          <img src={logoSrc} alt="Melobarber" />
+        <a href="#accueil" className="logo" aria-label="Melo Barber, retour à l'accueil">
+          <img src={logoSrc} alt="Melo Barber" width="170" height="64" />
         </a>
 
         <nav
