@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "./components/Header.jsx";
+import Hero from "./components/Hero.jsx";
 import Services from "./components/Services.jsx";
 import PhotoBand from "./components/PhotoBand.jsx";
 import Testimonials from "./components/Testimonials.jsx";
@@ -78,27 +79,7 @@ export default function App() {
       <Header logoSrc={logo} navLinks={NAV_LINKS} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
       <main id="main">
-        <section className="hero" id="accueil" aria-labelledby="hero-title">
-          <img className="hero-img" src={HERO_IMAGE} alt="" fetchpriority="high" decoding="async" />
-          <div className="hero-shade" aria-hidden="true" />
-          <div className="wrap hero-inner">
-            <div className="hero-copy reveal is-visible">
-              <span className="eyebrow">Barbershop · Sainte-Marthe-sur-le-Lac</span>
-              <h1 id="hero-title">
-                Dégradés nets,
-                <br />
-                <em>style</em> maîtrisé.
-              </h1>
-              <p className="lede">
-                Melo Barber, c'est la coupe précise dans un fauteuil détendu. Bonne musique, serviettes chaudes et des barbiers qui prennent leur temps — parce qu'un contour propre, ça ne se bâcle pas.
-              </p>
-              <div className="hero-actions">
-                <a href="#booking" className="btn btn--primary">Réserver un fauteuil</a>
-                <a href="#services" className="btn btn--ghost">Voir la carte</a>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Hero image={HERO_IMAGE} />
 
         <Services services={services} />
         <PhotoBand
