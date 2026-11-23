@@ -1,5 +1,6 @@
 import React from "react";
 import { business, formatHours, fullAddress } from "../data/business.js";
+import Icon from "./ui/Icon.jsx";
 
 export default function Footer() {
   return (
@@ -14,21 +15,13 @@ export default function Footer() {
             </p>
             <div className="social-row">
               <a href={business.social.instagram.url} target="_blank" rel="noreferrer" aria-label="Instagram Melo Barber">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.2" cy="6.8" r="1" />
-                </svg>
+                <Icon name="instagram" size={18} />
               </a>
               <a href={business.social.facebook.url} target="_blank" rel="noreferrer" aria-label="Facebook Melo Barber">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v7h4v-7h3l1-4h-4V9a1 1 0 0 1 1-1z" />
-                </svg>
+                <Icon name="facebook" size={18} />
               </a>
               <a href={business.social.tiktok.url} target="_blank" rel="noreferrer" aria-label="TikTok Melo Barber">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M15 3v10.5a3.5 3.5 0 1 1-3-3.46M15 3a5 5 0 0 0 5 5" />
-                </svg>
+                <Icon name="tiktok" size={18} />
               </a>
             </div>
           </div>

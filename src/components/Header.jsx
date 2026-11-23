@@ -1,6 +1,7 @@
 import React from "react";
 import NavLinkItem from "./ui/NavLinkItem.jsx";
 import NavActionButton from "./ui/NavActionButton.jsx";
+import Icon from "./ui/Icon.jsx";
 
 export default function Header({ logoSrc, navLinks, menuOpen, setMenuOpen }) {
   return (
@@ -38,7 +39,7 @@ export default function Header({ logoSrc, navLinks, menuOpen, setMenuOpen }) {
           aria-controls="main-navigation"
           onClick={() => setMenuOpen((v) => !v)}
         >
-          {menuOpen ? "✕" : "☰"}
+          <Icon name={menuOpen ? "close" : "menu"} size={26} />
         </button>
       </div>
     </header>

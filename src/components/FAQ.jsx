@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SectionHeading from "./ui/SectionHeading.jsx";
+import Icon from "./ui/Icon.jsx";
 
 export default function FAQ({ faq }) {
   const [openIndex, setOpenIndex] = useState(0);
@@ -27,7 +28,7 @@ export default function FAQ({ faq }) {
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
                 >
                   <span>{item.question}</span>
-                  <span className="faq-toggle">{isOpen ? "−" : "+"}</span>
+                  <span className="faq-toggle"><Icon name={isOpen ? "minus" : "plus"} size={18} /></span>
                 </button>
                 <AnimatePresence initial={false}>
                   {isOpen ? (
