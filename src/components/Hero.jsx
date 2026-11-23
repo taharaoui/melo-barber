@@ -21,7 +21,7 @@ export default function Hero({ image }) {
       <div className="hero-shade" aria-hidden="true" />
       <div className="wrap hero-inner">
         <div className="hero-copy reveal is-visible">
-          <span className="eyebrow">Barbershop · <span className="nowrap">Sainte-Marthe-sur-le-Lac</span></span>
+          <span className="eyebrow"><span>Barbershop · <span className="nowrap">Sainte-Marthe-sur-le-Lac</span></span></span>
           <h1 id="hero-title">
             L'art du dégradé,
             <br />

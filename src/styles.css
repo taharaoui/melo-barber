@@ -229,7 +229,7 @@ html, body{ margin:0; padding:0; background:var(--black); }
     display:none; position:absolute; top:var(--header-h); left:0; right:0;
     background:var(--black); border-bottom:1px solid var(--rule-on-dark);
     padding:12px var(--gutter) 32px;
-    max-height:calc(100svh - var(--header-h)); overflow-y:auto;
+    height:calc(100vh - var(--header-h)); height:calc(100svh - var(--header-h)); overflow-y:auto;
   }
   .melo-root nav.nav-links.open{ display:block; }
   .melo-root nav.nav-links ul{ flex-direction:column; align-items:stretch; gap:0; }
@@ -447,6 +447,9 @@ html, body{ margin:0; padding:0; background:var(--black); }
 .melo-root .booking-title{ margin-top:18px; font-family:var(--font-display); font-size:var(--fs-xl); font-weight:600; letter-spacing:var(--tracking-display); }
 .melo-root .booking-note{ margin-top:12px; color:var(--gray-warm); max-width:520px; }
 .melo-root .booking-panel:focus{ outline:none; }
+/* Le panneau noir est posé sur une section crème : on rebascule sur les couleurs « sombre ». */
+.melo-root .booking-panel .link-arrow{ color:var(--copper); }
+.melo-root .booking-panel :focus-visible{ outline-color:var(--copper); }
 .melo-root .booking-phone{ margin-top:28px; font-size:var(--fs-sm); color:var(--gray-warm-dark); }
 .melo-root .booking-phone a{ color:var(--copper-ink); border-bottom:1px solid rgb(var(--copper-rgb) / 0.5); white-space:nowrap; }
 .melo-root .booking-selection{
