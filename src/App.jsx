@@ -14,10 +14,9 @@ import { services } from "./data/services.js";
 import { gallery } from "./data/gallery.js";
 import { team as teamData } from "./data/team.js";
 import { faq } from "./data/faq.js";
+import { business, formatHours } from "./data/business.js";
 
 import logo from "./assets/logo.svg";
-
-const SETMORE_URL = "https://harry3cvf.setmore.com/";
 
 const NAV_LINKS = [
   { href: "#accueil", label: "Accueil" },
@@ -157,10 +156,9 @@ export default function App() {
             <h2 className="section-heading-light">Nos heures d'ouverture</h2>
             <table className="hours-table">
               <tbody>
-                <tr><td>Lundi</td><td>Fermé</td></tr>
-                <tr><td>Mardi – Vendredi</td><td>10 h – 19 h</td></tr>
-                <tr><td>Samedi</td><td>9 h – 17 h</td></tr>
-                <tr><td>Dimanche</td><td>10 h – 15 h</td></tr>
+                {business.hours.map((entry) => (
+                  <tr key={entry.day}><td>{entry.label}</td><td>{formatHours(entry)}</td></tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -174,7 +172,7 @@ export default function App() {
             <div className="setmore-frame" id="booking-embed">
               <iframe
                 title="Réservation Melobarber — Setmore"
-                src={SETMORE_URL}
+                src={business.bookingUrl}
                 loading="lazy"
                 aria-label="Réservation en ligne Melobarber"
               />

@@ -1,12 +1,15 @@
+// TODO : renseigner les vrais numéros (format international, ex. "+15145551234")
+// et comptes Instagram des barbiers. Tant qu'un champ vaut null,
+// le bouton correspondant (appel, WhatsApp, Instagram) n'est pas affiché.
 export const team = [
   {
     id: 1,
     name: "Harry",
     specialty: "Fade expert",
     experience: "12 ans d'expérience",
-    instagram: "@harrybarber",
-    instagramUrl: "https://www.instagram.com/harrybarber",
-    phone: "+33612345678",
+    instagram: null,
+    instagramUrl: null,
+    phone: null,
     image:
       "https://i.postimg.cc/T2cjrpP5/harry.webp",
   },
@@ -15,9 +18,9 @@ export const team = [
     name: "Marlon",
     specialty: "Skinfade & dégradés",
     experience: "5 ans d'expérience",
-    instagram: "@marloncuts",
-    instagramUrl: "https://www.instagram.com/marloncuts",
-    phone: "+33645678901",
+    instagram: null,
+    instagramUrl: null,
+    phone: null,
     image: "https://i.postimg.cc/8cdZvH0H/marlon-carte.webp",
   },
 ];
