@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Icon from "./ui/Icon.jsx";
+import Photo from "./ui/Photo.jsx";
 import { business, getOpenStatus, mapsUrl } from "../data/business.js";
 
 const formatRating = (value) => value.toLocaleString("fr-CA", { minimumFractionDigits: 1 });
@@ -16,7 +17,7 @@ export default function Hero({ image }) {
 
   return (
     <section className="hero" id="accueil" aria-labelledby="hero-title">
-      <img className="hero-img" src={image} alt="" fetchpriority="high" decoding="async" />
+      <Photo className="hero-img" image={image} alt="" sizes="100vw" priority />
       <div className="hero-shade" aria-hidden="true" />
       <div className="wrap hero-inner">
         <div className="hero-copy reveal is-visible">

@@ -1,6 +1,7 @@
 import React from "react";
 import SectionHeading from "./ui/SectionHeading.jsx";
 import Icon from "./ui/Icon.jsx";
+import Photo from "./ui/Photo.jsx";
 import { business } from "../data/business.js";
 
 export default function Team({ team, onBook }) {
@@ -18,7 +19,7 @@ export default function Team({ team, onBook }) {
           {team.slice(0, 2).map((member) => (
             <article className="team-card reveal" key={member.id}>
               <div className="team-photo-frame">
-                <img src={member.image} alt={`Portrait de ${member.name}`} loading="lazy" decoding="async" />
+                <Photo image={member.image} alt={`${member.name} au travail au salon`} sizes="(max-width: 760px) 100vw, 50vw" />
               </div>
 
               <div className="team-content">
