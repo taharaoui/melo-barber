@@ -1,56 +1,65 @@
 import React from "react";
 import { business, formatHours, fullAddress } from "../data/business.js";
-import Icon from "./ui/Icon.jsx";
-import logo from "../assets/logo.svg";
 
 export default function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer component-dark">
       <div className="wrap">
         <div className="footer-grid">
-          <div className="footer-brand">
-            <img src={logo} alt="Melo Barber" width="170" height="64" className="footer-logo" loading="lazy" />
-            <p>{fullAddress}</p>
+          <div>
+            <h4>{business.name}</h4>
+            <p style={{ maxWidth: 340 }}>{fullAddress}</p>
             <p>
-              <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a>
-              <br />
-              <a href={`mailto:${business.email}`}>{business.email}</a>
+              <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a> · <a href={`mailto:${business.email}`}>{business.email}</a>
             </p>
             <div className="social-row">
               <a href={business.social.instagram.url} target="_blank" rel="noreferrer" aria-label="Instagram Melo Barber">
-                <Icon name="instagram" size={18} />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.2" cy="6.8" r="1" />
+                </svg>
               </a>
               <a href={business.social.facebook.url} target="_blank" rel="noreferrer" aria-label="Facebook Melo Barber">
-                <Icon name="facebook" size={18} />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v7h4v-7h3l1-4h-4V9a1 1 0 0 1 1-1z" />
+                </svg>
               </a>
               <a href={business.social.tiktok.url} target="_blank" rel="noreferrer" aria-label="TikTok Melo Barber">
-                <Icon name="tiktok" size={18} />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M15 3v10.5a3.5 3.5 0 1 1-3-3.46M15 3a5 5 0 0 0 5 5" />
+                </svg>
               </a>
             </div>
           </div>
-          <nav aria-label="Liens du pied de page">
-            <h2 className="footer-title">Explorer</h2>
-            <ul>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#galerie">Galerie</a></li>
-              <li><a href="#team">L'équipe</a></li>
-              <li><a href="#booking">Horaires &amp; réservation</a></li>
-              <li><a href="#faq">FAQ</a></li>
-            </ul>
-          </nav>
           <div>
-            <h2 className="footer-title">Horaires</h2>
-            <ul className="footer-hours">
+            <h4>Explorer</h4>
+            <ul>
+              <li>
+                <a href="#services">Services</a>
+              </li>
+              <li>
+                <a href="#galerie">Galerie</a>
+              </li>
+              <li>
+                <a href="#team">L'équipe</a>
+              </li>
+              <li>
+                <a href="#booking">Horaires &amp; réservation</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Horaires</h4>
+            <ul>
               {business.hours.map((entry) => (
-                <li key={entry.day}>
-                  <span>{entry.label}</span>
-                  <span>{formatHours(entry)}</span>
-                </li>
+                <li key={entry.day}>{entry.label} · {formatHours(entry)}</li>
               ))}
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
+          <span className="footer-listen">Un salon à votre écoute</span>
           <span>© {new Date().getFullYear()} {business.name}. Tous droits réservés.</span>
           <span>Fait par Souketing Agency</span>
         </div>

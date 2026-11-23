@@ -3,7 +3,7 @@ export const services = [
     id: "coupe-cheveux",
     name: "Coupe cheveux / Skinfade",
     price: "$35",
-    duration: "30 min",
+    duration: "30 mins",
     badge: "Populaire",
     description:
       "Coupe moderne et skinfade soigné pour un rendu net, propre et parfaitement adapté à votre style.",
@@ -14,7 +14,7 @@ export const services = [
     id: "barbe",
     name: "Cheveux et Barbe / Skinfade and beard",
     price: "$45",
-    duration: "45 min",
+    duration: "45 mins",
     badge: "Pack complet",
     description:
       "Service combiné pour une coupe et une barbe parfaitement harmonisées, avec une finition impeccable.",
@@ -25,7 +25,7 @@ export const services = [
     id: "enfant",
     name: "Moins 12 / Under 12",
     price: "$25",
-    duration: "30 min",
+    duration: "30 mins",
     badge: "Enfant",
     description:
       "Coupe adaptée aux jeunes clients avec un accompagnement calme, professionnel et sans pression.",

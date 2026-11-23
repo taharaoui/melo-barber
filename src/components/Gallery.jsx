@@ -1,27 +1,31 @@
 import React from "react";
-import SectionHeading from "./ui/SectionHeading.jsx";
-import Icon from "./ui/Icon.jsx";
-import Photo from "./ui/Photo.jsx";
+import instagramIcon from "../assets/instagram-2-1-logo-svgrepo-com.svg";
 import { business } from "../data/business.js";
 
 const SIZES = {
-  large: "(max-width: 760px) 100vw, 50vw",
-  wide: "(max-width: 760px) 100vw, 50vw",
-  tall: "(max-width: 760px) 50vw, 25vw",
-  square: "(max-width: 760px) 50vw, 25vw",
+  large: "(max-width: 760px) 100vw, 60vw",
+  wide: "(max-width: 760px) 100vw, 60vw",
+  tall: "(max-width: 760px) 50vw, 30vw",
+  square: "(max-width: 760px) 50vw, 30vw",
 };
 
 export default function Gallery({ gallery }) {
   // En production, les emplacements vides de la séance photo ne sont pas affichés.
   const items = import.meta.env.DEV ? gallery : gallery.filter((item) => item.image);
+  const { instagram } = business.social;
 
   return (
-    <section className="gallery section section--light" id="galerie" aria-labelledby="gallery-title">
+    <section className="gallery" id="galerie" aria-labelledby="gallery-title">
+      <div className="groove-bg" />
       <div className="wrap">
         <div className="gallery-head">
-          <SectionHeading id="gallery-title" eyebrow="Galerie" title="Le travail, de près" />
-          <a className="link-arrow reveal" href={business.social.instagram.url} target="_blank" rel="noreferrer">
-            {business.social.instagram.handle} sur Instagram <Icon name="arrowRight" size={16} />
+          <div className="section-head on-ink reveal">
+            <span className="eyebrow eyebrow-white">Galerie</span>
+            <h2 id="gallery-title" className="section-heading-light">Le travail, de près</h2>
+          </div>
+          <a className="gallery-ig-link reveal" href={instagram.url} target="_blank" rel="noreferrer">
+            <img src={instagramIcon} alt="" aria-hidden="true" width="20" height="20" />
+            {instagram.handle} sur Instagram
           </a>
         </div>
 
@@ -29,15 +33,24 @@ export default function Gallery({ gallery }) {
           {items.map((item) =>
             item.image ? (
               <figure className={`gallery-item gallery-item--${item.size}`} key={item.id}>
-                <Photo image={item.image} alt={`${item.title} — ${item.caption}`} sizes={SIZES[item.size]} />
+                <img
+                  src={item.image.src}
+                  srcSet={item.image.srcSet}
+                  sizes={SIZES[item.size]}
+                  width={item.image.width}
+                  height={item.image.height}
+                  alt={`${item.title} — ${item.caption}`}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <figcaption>
-                  <span className="gallery-item__title">{item.title}</span>
-                  <span className="gallery-item__caption">{item.caption}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.caption}</p>
                 </figcaption>
               </figure>
             ) : (
               <div className={`gallery-item gallery-item--${item.size} gallery-item--slot`} key={item.id}>
-                <span className="label">{item.id}</span>
+                <span>{item.id}</span>
                 <span>{item.title}</span>
               </div>
             )
@@ -45,14 +58,20 @@ export default function Gallery({ gallery }) {
 
           <a
             className="gallery-item gallery-item--square gallery-instagram"
-            href={business.social.instagram.url}
+            href={instagram.url}
             target="_blank"
             rel="noreferrer"
+            aria-label={`Plus de coupes sur Instagram : ${instagram.handle} (nouvel onglet)`}
           >
-            <Icon name="instagram" size={28} />
-            <span className="gallery-instagram__title">Plus de coupes sur Instagram</span>
-            <span className="label">{business.social.instagram.handle}</span>
+            <img src={instagramIcon} alt="" aria-hidden="true" width="40" height="40" />
+            <h3>Plus de coupes sur Instagram</h3>
+            <span className="gallery-instagram__handle">{instagram.handle}</span>
           </a>
+        </div>
+
+        <div className="gallery-inline-cta reveal">
+          <p>Prêt à vivre la même expérience ?</p>
+          <a href="#booking" className="btn-primary">Réserver maintenant</a>
         </div>
       </div>
     </section>

@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Melo Barber">
-  <circle cx="50" cy="50" r="47.50" fill="none" stroke="#BD7B47" stroke-width="3.00"/>
-    <circle cx="50" cy="50" r="41.00" fill="none" stroke="#BD7B47" stroke-width="1.20"/>
-    <path d="M41.50 63.30 L53.31 46.95 L63.00 21.00 L49.56 45.04 Z" fill="#BD7B47"/>
-    <path d="M58.50 63.30 L52.25 44.12 L37.00 21.00 L48.50 46.03 Z" fill="#BD7B47"/>
-    <circle cx="38.50" cy="70.00" r="7.20" fill="none" stroke="#BD7B47" stroke-width="2.40"/>
-    <circle cx="61.50" cy="70.00" r="7.20" fill="none" stroke="#BD7B47" stroke-width="2.40"/>
-</svg>

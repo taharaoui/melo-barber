@@ -21,14 +21,6 @@ export const business = {
   },
   timezone: "America/Toronto",
   bookingUrl: "https://harry3cvf.setmore.com/",
-  // TODO : remplacer par la note Google (valeur, nombre d'avis, lien vers la fiche)
-  // dès qu'elle est confirmée. Valeurs actuelles : page Setmore.
-  rating: {
-    value: 4.9,
-    count: 30,
-    source: "Setmore",
-    url: "https://harry3cvf.setmore.com/reviews",
-  },
   social: {
     // TODO : confirmer le compte Instagram du salon (Setmore pointe vers @mayha_barbershop).
     instagram: { handle: "@melobarber", url: "https://www.instagram.com/melobarber" },
@@ -60,45 +52,4 @@ export function formatTime(value) {
 
 export function formatHours(entry) {
   return entry.open ? `${formatTime(entry.open)} – ${formatTime(entry.close)}` : "Fermé";
-}
-
-const WEEKDAYS = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
-const toMinutes = (value) => {
-  const [h, m] = value.split(":").map(Number);
-  return h * 60 + m;
-};
-
-// Statut d'ouverture à l'heure du salon, quel que soit le fuseau du visiteur.
-// Ex. { isOpen: true, text: "Ouvert aujourd'hui jusqu'à 18 h" }
-export function getOpenStatus(date = new Date()) {
-  const parts = Object.fromEntries(
-    new Intl.DateTimeFormat("en-US", {
-      timeZone: business.timezone,
-      weekday: "short",
-      hour: "2-digit",
-      minute: "2-digit",
-      hourCycle: "h23",
-    })
-      .formatToParts(date)
-      .map((p) => [p.type, p.value])
-  );
-  const day = WEEKDAYS[parts.weekday];
-  const now = Number(parts.hour) * 60 + Number(parts.minute);
-  const byDay = (d) => business.hours.find((entry) => entry.day === d);
-
-  const today = byDay(day);
-  if (today?.open && now < toMinutes(today.open)) {
-    return { isOpen: false, text: `Ouvre aujourd'hui à ${formatTime(today.open)}` };
-  }
-  if (today?.open && now < toMinutes(today.close)) {
-    return { isOpen: true, text: `Ouvert aujourd'hui jusqu'à ${formatTime(today.close)}` };
-  }
-  for (let i = 1; i <= 7; i++) {
-    const next = byDay((day + i) % 7);
-    if (next?.open) {
-      const when = i === 1 ? "demain" : next.label.toLowerCase();
-      return { isOpen: false, text: `Fermé · ouvre ${when} à ${formatTime(next.open)}` };
-    }
-  }
-  return { isOpen: false, text: "Fermé" };
 }
