@@ -16,6 +16,8 @@ import { team as teamData } from "./data/team.js";
 import { faq } from "./data/faq.js";
 
 import logo from "./assets/logo.svg";
+import heroImage from "./assets/hero-melo.webp";
+import heroImageMobile from "./assets/hero-melo-mobile.webp";
 
 const SETMORE_URL = "https://harry3cvf.setmore.com/";
 
@@ -116,7 +118,8 @@ export default function App() {
         className="hero component-dark"
         id="accueil"
         style={{
-          backgroundImage: `linear-gradient(100deg, rgba(10, 8, 6, 0.95) 0%, rgba(10, 8, 6, 0.78) 40%, rgba(10, 8, 6, 0.36) 100%), url(https://i.postimg.cc/c0xbKv75/photo-1705976062088-5433328c2dcd.avif)`,
+          "--hero-image": `url(${heroImage})`,
+          "--hero-image-mobile": `url(${heroImageMobile})`,
         }}
       >
         <div className="groove-bg" />
