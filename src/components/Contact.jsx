@@ -1,34 +1,82 @@
 import React from "react";
-import SectionHeading from "./ui/SectionHeading.jsx";
-import { business, fullAddress, mapsUrl } from "../data/business.js";
+import { business, formatHours, fullAddress, mapsUrl } from "../data/business.js";
 
 export default function Contact() {
+  const today = new Date().getDay();
+  const { street, city, region, postalCode } = business.address;
+
   return (
     <section className="contact" id="contact" aria-labelledby="contact-title">
-      <div className="wrap contact-grid">
-        <div>
-          <SectionHeading
-            id="contact-title"
-            eyebrow="Trouvez-nous"
-            title="Un salon à votre écoute"
-            description="Nous vous répondons rapidement pour réserver, répondre à vos questions ou vous orienter vers le meilleur service."
-          />
-          <ul className="contact-list">
-            <li><strong>Téléphone</strong><a href={`tel:${business.phone}`}>{business.phoneDisplay}</a></li>
-            <li><strong>Email</strong><a href={`mailto:${business.email}`}>{business.email}</a></li>
-            <li><strong>Adresse</strong>{fullAddress}</li>
-            <li><strong>Instagram</strong><a href={business.social.instagram.url} target="_blank" rel="noreferrer">{business.social.instagram.handle}</a></li>
-          </ul>
+      <div className="wrap">
+        <div className="section-head reveal">
+          <span className="eyebrow">Nous trouver</span>
+          <h2 id="contact-title" className="display-title">
+            Le salon
+          </h2>
         </div>
 
-        <div className="contact-map-card">
-          <iframe
-            title="Localisation Melo Barber"
-            src={`https://www.google.com/maps?q=${encodeURIComponent(fullAddress)}&z=14&output=embed`}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-          <a href={mapsUrl} target="_blank" rel="noreferrer" className="btn-primary">Ouvrir dans Google Maps</a>
+        <div className="contact-grid">
+          <div className="contact-info reveal">
+            <dl className="contact-list">
+              <div>
+                <dt>Adresse</dt>
+                <dd>
+                  {street}
+                  <br />
+                  {city}, {region} {postalCode}
+                  <a className="btn-ghost btn-ghost--sm" href={mapsUrl} target="_blank" rel="noreferrer">
+                    Itinéraire <span aria-hidden="true">↗</span>
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt>Téléphone</dt>
+                <dd>
+                  <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a>
+                </dd>
+              </div>
+              <div>
+                <dt>Courriel</dt>
+                <dd>
+                  <a href={`mailto:${business.email}`}>{business.email}</a>
+                </dd>
+              </div>
+              <div>
+                <dt>Instagram</dt>
+                <dd>
+                  <a href={business.social.instagram.url} target="_blank" rel="noreferrer">
+                    {business.social.instagram.handle}
+                  </a>
+                </dd>
+              </div>
+            </dl>
+
+            <div className="hours">
+              <h3 className="hours__title">Heures d'ouverture</h3>
+              <table className="hours-table">
+                <tbody>
+                  {business.hours.map((entry) => (
+                    <tr key={entry.day} className={entry.day === today ? "is-today" : undefined}>
+                      <th scope="row">
+                        {entry.label}
+                        {entry.day === today ? <span className="hours__today">Aujourd'hui</span> : null}
+                      </th>
+                      <td>{formatHours(entry)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="contact-map reveal reveal-mask">
+            <iframe
+              title={`Carte : ${fullAddress}`}
+              src={`https://www.google.com/maps?q=${encodeURIComponent(fullAddress)}&z=14&output=embed`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
       </div>
     </section>

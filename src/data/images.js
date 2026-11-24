@@ -11,6 +11,7 @@ import harry400 from "../assets/images/team-harry-400.webp";
 import harry600 from "../assets/images/team-harry-600.webp";
 import marlon480 from "../assets/images/team-marlon-480.webp";
 import marlon820 from "../assets/images/team-marlon-820.webp";
+import kaboomPlaceholder from "../assets/images/team-kaboom-placeholder.webp";
 
 const photo = (sources, width, height) => ({
   src: sources[sources.length - 1][0],
@@ -20,11 +21,13 @@ const photo = (sources, width, height) => ({
 });
 
 export const images = {
-  // Fond du hero (CSS) : 1600 px par défaut, 2400 px sur grand écran ou écran Retina.
-  // Photo d'illustration (Unsplash). TODO : remplacer par une photo de la séance photo.
+  // Photo plein cadre du hero (<img srcset>) : 1600 px ou 2400 px selon l'écran.
+  // Image générée avec Higgsfield (cinematic_studio_2_5, 2752×1536). TODO : remplacer par une photo de la séance photo.
   hero: { md: hero1600, lg: hero2400 },
   atelierFade: photo([[fade640, 640], [fade1280, 1280]], 1280, 853),
   barbeServiette: photo([[barbe480, 480], [barbe735, 735]], 735, 988),
   teamHarry: photo([[harry400, 400], [harry600, 600]], 600, 750),
   teamMarlon: photo([[marlon480, 480], [marlon820, 820]], 820, 1025),
+  // Cadre neutre (dégradé sombre + emblème cuivre) en attendant la photo de Kaboom.
+  teamKaboomPlaceholder: photo([[kaboomPlaceholder, 820]], 820, 1025),
 };

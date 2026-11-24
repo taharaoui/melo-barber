@@ -22,7 +22,9 @@ export default function Testimonials() {
       <div className="wrap">
         <div className="section-head reveal">
           <span className="eyebrow">Avis clients</span>
-          <h2 id="testimonials-title">La preuve du savoir-faire</h2>
+          <h2 id="testimonials-title">
+            La preuve <em>du savoir-faire</em>
+          </h2>
           <p>Des clients réguliers, des résultats constants et une réputation bâtie sur la précision, le confort et la qualité.</p>
         </div>
 

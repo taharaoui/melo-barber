@@ -1,65 +1,58 @@
 import React from "react";
+import SocialLinks from "./ui/SocialLinks.jsx";
 import { business, formatHours, fullAddress } from "../data/business.js";
 
-export default function Footer() {
+export default function Footer({ logoSrc, navLinks }) {
   return (
-    <footer className="site-footer component-dark">
+    <footer className="site-footer">
       <div className="wrap">
+        <div className="footer-cta">
+          <p className="footer-cta__title">
+            Prêt pour <em>votre prochaine coupe</em>&nbsp;?
+          </p>
+          <a href="#booking" className="btn-primary">
+            Réserver un fauteuil <span className="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
         <div className="footer-grid">
-          <div>
-            <h4>{business.name}</h4>
-            <p style={{ maxWidth: 340 }}>{fullAddress}</p>
+          <div className="footer-brand">
+            <img src={logoSrc} alt={business.name} width="293" height="128" loading="lazy" />
+            <p>{fullAddress}</p>
             <p>
-              <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a> · <a href={`mailto:${business.email}`}>{business.email}</a>
+              <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a>
+              <br />
+              <a href={`mailto:${business.email}`}>{business.email}</a>
             </p>
-            <div className="social-row">
-              <a href={business.social.instagram.url} target="_blank" rel="noreferrer" aria-label="Instagram Melo Barber">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.2" cy="6.8" r="1" />
-                </svg>
-              </a>
-              <a href={business.social.facebook.url} target="_blank" rel="noreferrer" aria-label="Facebook Melo Barber">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v7h4v-7h3l1-4h-4V9a1 1 0 0 1 1-1z" />
-                </svg>
-              </a>
-              <a href={business.social.tiktok.url} target="_blank" rel="noreferrer" aria-label="TikTok Melo Barber">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M15 3v10.5a3.5 3.5 0 1 1-3-3.46M15 3a5 5 0 0 0 5 5" />
-                </svg>
-              </a>
-            </div>
+            <SocialLinks className="footer-social" />
           </div>
           <div>
-            <h4>Explorer</h4>
+            <h2 className="footer-title">Explorer</h2>
             <ul>
+              {navLinks.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href}>{l.label}</a>
+                </li>
+              ))}
               <li>
-                <a href="#services">Services</a>
-              </li>
-              <li>
-                <a href="#galerie">Galerie</a>
-              </li>
-              <li>
-                <a href="#team">L'équipe</a>
-              </li>
-              <li>
-                <a href="#booking">Horaires &amp; réservation</a>
+                <a href="#booking">Réservation</a>
               </li>
             </ul>
           </div>
           <div>
-            <h4>Horaires</h4>
-            <ul>
+            <h2 className="footer-title">Horaires</h2>
+            <ul className="footer-hours">
               {business.hours.map((entry) => (
-                <li key={entry.day}>{entry.label} · {formatHours(entry)}</li>
+                <li key={entry.day}>
+                  <span>{entry.label}</span>
+                  <span>{formatHours(entry)}</span>
+                </li>
               ))}
             </ul>
           </div>
         </div>
+
         <div className="footer-bottom">
-          <span className="footer-listen">Un salon à votre écoute</span>
           <span>© {new Date().getFullYear()} {business.name}. Tous droits réservés.</span>
           <span>Fait par Souketing Agency</span>
         </div>

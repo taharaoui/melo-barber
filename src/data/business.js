@@ -26,6 +26,9 @@ export const business = {
     instagram: { handle: "@melobarber", url: "https://www.instagram.com/melobarber" },
     facebook: { url: "https://www.facebook.com/melobarber" },
     tiktok: { url: "https://www.tiktok.com/@melobarber" },
+    // TODO : aucun lien WhatsApp officiel connu. Renseigner l'URL (ex. "https://wa.me/1514XXXXXXX")
+    // une fois confirmée par le salon ; tant que la valeur vaut null, l'icône n'est pas affichée.
+    whatsapp: { url: null },
   },
   // TODO : confirmer — horaires affichés sur la page Setmore.
   // day : 0 = dimanche … 6 = samedi. open/close au format "HH:MM", null = fermé.
