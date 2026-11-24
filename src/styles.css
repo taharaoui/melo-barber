@@ -154,6 +154,12 @@ html{ scroll-behavior:smooth; }
   position:relative; background:var(--ink); color:var(--cream);
   min-height:100vh; display:flex; align-items:center; padding-top:88px; overflow:hidden;
   background-repeat:no-repeat; background-position:center; background-size:cover;
+  background-image:linear-gradient(100deg, rgba(10, 8, 6, 0.95) 0%, rgba(10, 8, 6, 0.78) 40%, rgba(10, 8, 6, 0.36) 100%), var(--hero-image);
+}
+@media (max-width: 700px){
+  .melo-root section.hero{
+    background-image:linear-gradient(100deg, rgba(10, 8, 6, 0.95) 0%, rgba(10, 8, 6, 0.78) 40%, rgba(10, 8, 6, 0.36) 100%), var(--hero-image-mobile);
+  }
 }
 .melo-root .hero-grid{ position:relative; z-index:2; display:grid; grid-template-columns:minmax(0, 1fr); align-items:center; width:100%; }
 .melo-root .hero-copy{ max-width:620px; }
